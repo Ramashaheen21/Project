@@ -26,7 +26,7 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_acivity);
+        setContentView(R.layout.activity_start);
 
         setupView();
     }
@@ -71,7 +71,7 @@ public class Splash extends AppCompatActivity {
                 Intent intent;
 
                 if (user_id == null || user_id.equals(""))
-                    intent = new Intent(Splash.this, LoginActivity.class);
+                    intent = new Intent(Splash.this, Login.class);
 
                 else
                     intent = new Intent(Splash.this, HomePage.class);

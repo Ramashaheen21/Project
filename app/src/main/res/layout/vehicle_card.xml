@@ -44,10 +44,11 @@
                 android:id="@+id/book"
                 android:layout_width="124dp"
                 android:layout_height="46dp"
-                android:backgroundTint="@color/white"
                 android:text="Book"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
+                android:background="@drawable/select_button"
+                android:backgroundTint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 

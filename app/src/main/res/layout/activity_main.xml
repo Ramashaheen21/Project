@@ -5,6 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <HorizontalScrollView
+        android:id="@+id/topList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/mercedesbtn"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:drawableTop="@drawable/mercedes"
+                android:backgroundTint="@color/white" />
+
+            <Button
+                android:id="@+id/bmwbtn"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:drawableTop="@drawable/bmw"
+                android:backgroundTint="@color/white" />
+
+            <Button
+                android:id="@+id/hyundaibtn"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/white"
+                android:drawableTop="@drawable/hyundai" />
+
+            <Button
+                android:id="@+id/skodabtn"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:drawableTop="@drawable/skoda"
+                android:backgroundTint="@color/white" />
+
+            <Button
+                android:id="@+id/lexus"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:drawableTop="@drawable/lexus"
+                android:backgroundTint="@color/white" />
+
+            <Button
+                android:id="@+id/audi"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:drawableTop="@drawable/audi"
+                android:backgroundTint="@color/white" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -15,76 +73,32 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
             android:background="@color/white">
 
-            <HorizontalScrollView
-                android:id="@+id/topList"
+            <EditText
+                android:id="@+id/search_txt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:background="@color/white">
-
-
-                <Button
-                    android:id="@+id/mercedesbtn"
-                    android:layout_width="90dp"
-                    android:layout_height="70dp"
-                    android:drawableTop="@drawable/mercedes"
-                    android:backgroundTint="@color/white" />
-
-                <Button
-                    android:id="@+id/bmwbtn"
-                    android:layout_width="90dp"
-                    android:layout_height="70dp"
-                    android:drawableTop="@drawable/bmw"
-                    android:backgroundTint="@color/white" />
-
-                <Button
-                    android:id="@+id/hyundaibtn"
-                    android:layout_width="90dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="@color/white"
-                    android:drawableTop="@drawable/hyundai" />
-
-                <Button
-                    android:id="@+id/skodabtn"
-                    android:layout_width="90dp"
-                    android:layout_height="70dp"
-                    android:drawableTop="@drawable/skoda"
-                    android:backgroundTint="@color/white" />
-
-                <Button
-                    android:id="@+id/lexus"
-                    android:layout_width="90dp"
-                    android:layout_height="70dp"
-                    android:drawableTop="@drawable/lexus"
-                    android:backgroundTint="@color/white" />
-
-                <Button
-                    android:id="@+id/audi"
-                    android:layout_width="90dp"
-                    android:layout_height="70dp"
-                    android:drawableTop="@drawable/audi"
-                    android:backgroundTint="@color/white" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="5dp"
+                android:text="Search"
+                android:textColor="@color/black"
+                android:background="@drawable/round_edit_txt"
+                android:textStyle="bold"
+                android:paddingStart="20dp"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_width="90dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_margin="10dp"
                 android:layout_marginStart="5dp"
                 android:text="Trending"
+                android:textColor="@color/black"
                 android:textStyle="bold"
-                android:textSize="20sp" />
+                android:textSize="34sp" />
 
             <include
                 android:id="@+id/card1"

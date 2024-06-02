@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/car_background"
     android:textAlignment="center"
-    tools:context=".ActivityPages.SignUpActivity">
+    tools:context=".ActivityPages.SignUp">
 
     <Button
         android:id="@+id/registration_btn"

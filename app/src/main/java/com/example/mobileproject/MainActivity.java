@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mobileproject.ActivityPages.LoginActivity;
+import com.example.mobileproject.ActivityPages.Login;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+        Intent loginIntent = new Intent(MainActivity.this, Login.class);
         startActivity(loginIntent);
         finish();
     }

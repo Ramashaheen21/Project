@@ -14,18 +14,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mobileproject.ActivityPages.HomePage;
-import com.example.mobileproject.ActivityPages.SignUpActivity;
 import com.example.mobileproject.R;
 
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseError;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
-//import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     EditText username_txt;
     EditText pw_txt;
@@ -70,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if (username_txt.getText().toString().equals(email)
                                         && pw_txt.getText().toString().equals(password)) {
-                                    Intent intent = new Intent(LoginActivity.this, HomePage.class);
+                                    Intent intent = new Intent(Login.this, HomePage.class);
                                     intent.putExtra("userId", userId);
 
                                     SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
@@ -87,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(LoginActivity.this, "Failed to Get Data", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Failed to Get Data", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -97,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         register_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(Login.this, SignUp.class);
                 startActivity(intent);
                 finish();
             }

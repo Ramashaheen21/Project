@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "402241539251",
+    "project_id": "mobile-project-c2608",
+    "storage_bucket": "mobile-project-c2608.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402241539251:android:04d3171dae1705bd07b4c6",
+        "android_client_info": {
+          "package_name": "com.example.mobileproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYCf7x158-qP-stubQ_LHFvfyYJ4vwcRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

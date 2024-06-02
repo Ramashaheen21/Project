@@ -13,8 +13,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import com.example.mobileproject.R;
 
@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.UUID;
 
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
     EditText firstname_txt;
     EditText lastname_txt;
     EditText email_txt;
@@ -79,7 +79,7 @@ public class SignUpActivity extends AppCompatActivity {
         login_page_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                Intent intent = new Intent(SignUp.this, Login.class);
                 startActivity(intent);
             }
         });
@@ -146,7 +146,7 @@ public class SignUpActivity extends AppCompatActivity {
         editor.putString("userID", uuid);
         editor.apply();
 
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
         finish();
     }
