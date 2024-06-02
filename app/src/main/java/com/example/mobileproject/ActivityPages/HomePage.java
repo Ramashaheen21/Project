@@ -15,21 +15,8 @@ import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import com.example.mobileproject.R;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Calendar ;
 
 public class HomePage extends AppCompatActivity {
@@ -62,9 +49,6 @@ public class HomePage extends AppCompatActivity {
         menu_account = findViewById(R.id.button_profile);
 
         top_list = findViewById(R.id.topList);
-
-
-        getNearsCars();
 
         final Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -107,39 +91,7 @@ public class HomePage extends AppCompatActivity {
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (edt_pickupLocation.getText().toString().isEmpty()) {
-                    tf_warning.setText(R.string.pickupLocationError);
-                } else if (tf_pickupDate.getText().toString().isEmpty()) {
-                    tf_warning.setText(R.string.pickupDateError);
-                } else if (tf_dropoffDate.getText().toString().isEmpty()) {
-                    tf_warning.setText(R.string.dropoffDateError);
-                } else {
-                    String pickupLocation = edt_pickupLocation.getText().toString();
 
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
-
-                    LocalDate pickupDate = LocalDate.parse(tf_pickupDate.getText().toString(), formatter);
-                    LocalDate dropoffDate = LocalDate.parse(tf_dropoffDate.getText().toString(), formatter);
-
-                    if (pickupDate.isBefore(LocalDate.now())) {
-                        tf_warning.setText(R.string.futureDatesError);
-                    } else if (pickupDate.isAfter(dropoffDate)) {
-                        tf_warning.setText(R.string.dropDateAfterPickupError);
-                    } else {
-                        Intent i = new Intent(getApplicationContext(), CarsAvailable.class);
-                        i.putExtra("pickupLocation", pickupLocation);
-                        i.putExtra("fromDate", pickupDate.toString());
-                        i.putExtra("toDate", dropoffDate.toString());
-
-                        SharedPreferences sharedPreferences = getSharedPreferences("dates", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("fromDate", pickupDate.toString());
-                        editor.putString("toDate", dropoffDate.toString());
-                        editor.apply();
-
-                        startActivity(i);
-                    }
-                }
             }
         });
 
@@ -178,68 +130,4 @@ public class HomePage extends AppCompatActivity {
         });
     }
 
-
-    private void getNearsCars() {
-        recycler_layout.setHasFixedSize(true);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recycler_layout.setLayoutManager(layoutManager);
-
-        ArrayList<HomeCarCard> listOfCars = new ArrayList<>();
-        HomeCarCardAdaptor carsAdapter = new HomeCarCardAdaptor(this, listOfCars);
-        recycler_layout.setAdapter(carsAdapter);
-
-
-        // Get a reference to the cars node in the Firebase Realtime Database
-        DatabaseReference carsReference = FirebaseDatabase.getInstance().getReference().child("cars");
-
-        // Set the myLocation variable
-        LocationHelper locationHelper = new LocationHelper(this);
-        String myLocation = locationHelper.getLocation();
-
-        // Read data from the Firebase Realtime Database
-        carsReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                int count = 0;
-                for (DataSnapshot carSnapshot : dataSnapshot.getChildren()) {
-                    if (count >= 6) {
-                        break;
-                    }
-                    String carLocation = carSnapshot.child("lat_long").getValue(String.class);
-                    double distance = DistanceCalculator.distance(myLocation, carLocation);
-                    if (distance <= 10000000) {
-                        count++;
-
-                        // The car is within 10 km of the user's location
-                        final HomeCarCard carCard = new HomeCarCard();
-                        carCard.id = carSnapshot.getKey();
-                        carCard.brand = carSnapshot.child("brand").getValue(String.class);
-                        carCard.price = carSnapshot.child("price").getValue(Integer.class) + "$/Day";
-
-                        getCarImage(carCard.id, carCard);
-                    }
-                }
-            }
-
-            private void getCarImage(String carID, HomeCarCard carCard) {
-                FirebaseStorage storage = FirebaseStorage.getInstance();
-                StorageReference storageRef = storage.getReference();
-
-                StorageReference imageRef = storageRef.child("images/cars/" + carID + ".jpg");
-
-                imageRef.getBytes(5 * 1024 * 1024).addOnSuccessListener(bytes -> {
-                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    carCard.image = bmp;
-                    listOfCars.add(carCard);
-                    carsAdapter.notifyDataSetChanged();
-                });
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Handle the error
-            }
-        });
-    }
 }

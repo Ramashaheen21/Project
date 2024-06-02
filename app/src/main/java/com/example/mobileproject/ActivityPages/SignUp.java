@@ -10,13 +10,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 
 import com.example.mobileproject.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -137,18 +143,30 @@ public class SignUp extends AppCompatActivity {
         user.put("password", password.getText().toString());
         user.put("phoneNumber", number_txt.getText().toString());
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("users");
-        myRef.child(uuid).setValue(user);
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        CollectionReference myRef = database.collection("LogIn");
+        myRef.document(uuid).set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Successfully written
+                        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("userID", uuid);
+                        editor.apply();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("userID", uuid);
-        editor.apply();
-
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-        finish();
+                        Intent intent = new Intent(SignUp.this, HomePage.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Failed to write
+                        Toast.makeText(SignUp.this, "Failed to write data", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
 

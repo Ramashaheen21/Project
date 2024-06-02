@@ -17,22 +17,6 @@
         app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Rental" />
-
-    <TextView
-        android:id="@+id/tf_note"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="Drive Beyond Boundaries"
-        android:textColor="@color/black"
-        android:padding="1dp"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+        app:srcCompat="@drawable/logowhite2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

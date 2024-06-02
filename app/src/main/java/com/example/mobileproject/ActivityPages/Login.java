@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -14,22 +15,28 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mobileproject.ActivityPages.HomePage;
+import com.example.mobileproject.ActivityPages.SignUp;
 import com.example.mobileproject.R;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 
 public class Login extends AppCompatActivity {
 
-    EditText username_txt;
-    EditText pw_txt;
-    Button login_btn;
-    Button register_btn;
-    boolean isAllChecked = false;
+    private EditText username_txt;
+    private EditText pw_txt;
+    private Button login_btn;
+    private Button register_btn;
+    private boolean isAllChecked = false;
+
+    private FirebaseFirestore database = FirebaseFirestore.getInstance();
+    private CollectionReference colRef = database.collection("LogIn");
 
 
     @Override
@@ -50,24 +57,19 @@ public class Login extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userName = username_txt.getText().toString().trim();
+                String password = pw_txt.getText().toString().trim();
+                Customerlogin customer = new Customerlogin(userName,password);
 
                 isAllChecked = checkUsername();
-
                 if (isAllChecked) {
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference userRef = database.getReference("users");
-
-                    userRef.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                String userId = dataSnapshot.getKey();
-
-                                String email = dataSnapshot.child("email").getValue(String.class);
-                                String password = dataSnapshot.child("password").getValue(String.class);
-
-                                if (username_txt.getText().toString().equals(email)
-                                        && pw_txt.getText().toString().equals(password)) {
+                    colRef.whereEqualTo("email", userName)
+                            .whereEqualTo("password", password)
+                            .get()
+                            .addOnSuccessListener(queryDocumentSnapshots -> {
+                                if (!queryDocumentSnapshots.isEmpty()) {
+                                    DocumentSnapshot documentSnapshot = queryDocumentSnapshots.getDocuments().get(0);
+                                    String userId = documentSnapshot.getId();
                                     Intent intent = new Intent(Login.this, HomePage.class);
                                     intent.putExtra("userId", userId);
 
@@ -78,16 +80,11 @@ public class Login extends AppCompatActivity {
 
                                     startActivity(intent);
                                     finish();
+                                } else {
+                                    Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                                 }
-                            }
-//                            Toast.makeText(login.this, "Account Doesn't Exist", Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(Login.this, "Failed to Get Data", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                            })
+                            .addOnFailureListener(e -> Toast.makeText(Login.this, "Failed to Get Data", Toast.LENGTH_SHORT).show());
                 }
             }
         });
@@ -110,11 +107,10 @@ public class Login extends AppCompatActivity {
 
 
     private boolean checkUsername() {
-
         if (username_txt.getText().toString().isEmpty()) {
             username_txt.setError("Username is Required");
             return false;
-        } else if (isEmail(username_txt) == false) {
+        } else if (!isEmail(username_txt)) {
             username_txt.setError("Please Enter a Valid Username!");
             return false;
         }
@@ -129,8 +125,3 @@ public class Login extends AppCompatActivity {
 
 
 }
-
-
-
-
-
