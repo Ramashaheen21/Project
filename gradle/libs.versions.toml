@@ -11,6 +11,7 @@ firebaseDatabase = "21.0.0"
 firebaseStorage = "21.0.0"
 firebaseFirestore = "25.0.0"
 playServicesMaps = "18.2.0"
+googleServices = "4.4.2"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -24,6 +25,7 @@ firebase-database = { group = "com.google.firebase", name = "firebase-database",
 firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "firebaseFirestore" }
 play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
+google-services = { group = "com.google.gms", name = "google-services", version.ref = "googleServices" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

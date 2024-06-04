@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/black"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/img_headerLogo"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logoblack" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <HorizontalScrollView
         android:id="@+id/topList"
@@ -33,31 +53,31 @@
                 android:backgroundTint="@color/white" />
 
             <Button
-                android:id="@+id/hyundaibtn"
+                android:id="@+id/bentleybtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:backgroundTint="@color/white"
-                android:drawableTop="@drawable/hyundai" />
+                android:drawableTop="@drawable/bentley" />
 
             <Button
-                android:id="@+id/skodabtn"
+                android:id="@+id/porschebtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
-                android:drawableTop="@drawable/skoda"
+                android:drawableTop="@drawable/porsche"
                 android:backgroundTint="@color/white" />
 
             <Button
-                android:id="@+id/lexus"
+                android:id="@+id/ferraribtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
-                android:drawableTop="@drawable/lexus"
+                android:drawableTop="@drawable/ferrari"
                 android:backgroundTint="@color/white" />
 
             <Button
-                android:id="@+id/audi"
+                android:id="@+id/astonMartinbtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
-                android:drawableTop="@drawable/audi"
+                android:drawableTop="@drawable/aston_martin"
                 android:backgroundTint="@color/white" />
 
         </LinearLayout>
