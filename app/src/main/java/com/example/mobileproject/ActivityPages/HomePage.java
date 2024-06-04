@@ -95,7 +95,7 @@ public class HomePage extends AppCompatActivity {
         menu_liked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), findUs.class);
+                Intent i = new Intent(getApplicationContext(), FindUs.class);
                 startActivity(i);
             }
         });

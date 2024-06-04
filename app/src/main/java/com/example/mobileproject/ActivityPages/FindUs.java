@@ -13,7 +13,7 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.api.IMapController;
 
-public class findUs extends AppCompatActivity {
+public class FindUs extends AppCompatActivity {
 
     private MapView mapView;
 
@@ -49,7 +49,7 @@ public class findUs extends AppCompatActivity {
             @Override
             public boolean onMarkerClick(Marker marker, MapView mapView) {
                 // Show a toast message when the marker is clicked
-                Toast.makeText(findUs.this, "Marker clicked!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FindUs.this, "Marker clicked!", Toast.LENGTH_SHORT).show();
                 // Return true to consume the click event
                 return true;
             }
