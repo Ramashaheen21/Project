@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MobileProject</string>
+    <string name="contactInfo">
+You can find us via our contact bellow:-
+Email: szain@Birzeit.edu
+Phone: +1 (123) 456-7890
+Office Hours: Mon-Thu, 10 AM - 5 PM
+Address: Birzeit University, Birzeit, Ramallah, Palestine
+</string>
+
+    <string name="aboutUs">Explore our collection of classic and unique cars. From iconic models to timeless classics, each car offers a memorable driving experience. Welcome to a world of beauty and craftsmanship on the road.</string>
 </resources>
