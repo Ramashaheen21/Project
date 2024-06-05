@@ -5,29 +5,18 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
 import androidx.appcompat.app.AppCompatActivity;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+
 import com.example.mobileproject.R;
-import com.hishd.tinycart.model.Cart;
-import com.hishd.tinycart.util.TinyCartHelper;
-import com.stripe.android.PaymentConfiguration;
-import com.stripe.android.paymentsheet.PaymentSheet;
-import com.stripe.android.paymentsheet.PaymentSheetResult;
+
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class checkoutinfo extends AppCompatActivity {
 
-    private EditText etFirstName, etLastName, etIdNumber, etBirthday, etStartDate, etEndDate;
+    private EditText FirstName, LastName, ID, etBirthday, etStartDate, etEndDate;
     private Switch switchTerms;
     private Button btnAddPayment, btnPurchase;
     private ListView lvCardInfo;
@@ -37,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etFirstName = findViewById(R.id.first_name);
-        etLastName = findViewById(R.id.last_name);
-        etIdNumber = findViewById(R.id.id_number);
+        FirstName = findViewById(R.id.first_name);
+        LastName = findViewById(R.id.last_name);
+        ID = findViewById(R.id.id_number);
         etBirthday = findViewById(R.id.birthday);
         etStartDate = findViewById(R.id.start_date);
         etEndDate = findViewById(R.id.end_date);
