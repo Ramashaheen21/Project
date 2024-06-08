@@ -1,47 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
     tools:context=".ActivityPages.profile">
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@color/black"
-        app:srcCompat="@drawable/classicphotocover" />
-
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView5"-->
-    <!--        android:layout_width="150dp"-->
-    <!--        android:layout_height="120dp"-->
-    <!--        android:layout_gravity="center"-->
-    <!--        app:srcCompat="@drawable/logowhite" />-->
 
     <TextView
         android:id="@+id/updateInfo"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_gravity="center"
+        android:layout_height="45dp"
+        android:gravity="center"
         android:text="Click To Find more Info About Us!"
         android:background="@color/white"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold" />
-
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.408" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="359dp"
         android:layout_height="280dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:background="@color/Lightest">
+        android:layout_marginTop="100dp"
+        android:background="@color/Lightest"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.757">
 
         <LinearLayout
             android:layout_width="64dp"
@@ -205,54 +198,60 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-
-
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/classicphotocover" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.243"
+        app:srcCompat="@drawable/logowhite" />
 
-
-
-    <!--    <Button-->
-    <!--        android:id="@+id/userActivity"-->
-    <!--        android:layout_width="195dp"-->
-    <!--        android:layout_height="48dp"-->
-    <!--        android:backgroundTint="@color/black"-->
-    <!--        android:text="Show Your Activity"-->
-    <!--        android:textSize="14sp"-->
-    <!--        android:textStyle="bold"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.782"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        android:layout_marginBottom="20dp"-->
-    <!--        app:layout_constraintVertical_bias="0.976" />-->
+<!--    <Button-->
+<!--        android:id="@+id/userActivity"-->
+<!--        android:layout_width="195dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:backgroundTint="@color/black"-->
+<!--        android:text="Show Your Activity"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.782"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        app:layout_constraintVertical_bias="0.976" />-->
 
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="100dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/black"
         android:text="Logout"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <include
-            android:id="@+id/box_buttons"
-            layout="@layout/buttons_box"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="620dp" />
-
-    </FrameLayout>
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
