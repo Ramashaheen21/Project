@@ -32,7 +32,6 @@ public class HomePage extends AppCompatActivity {
     private static final String TAG = "HomePage";
 
     private RecyclerView recyclerView;
-    private CarAdapter carAdapter;
     private List<Car> carList;
     private Button btn_search;
     private Button mercedesbtn;
@@ -153,58 +152,6 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void fetchCars(String carBrand) {
-        String url = "http://localhost/carPHP/PHPcar.php?cat=" + carBrand;
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                response -> {
-                    try {
-                        JSONArray jsonArray = new JSONArray(response);
-                        carList.clear();
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject car = jsonArray.getJSONObject(i);
-                            String carId = car.getString("Car ID");
-                            String car_brand = car.getString("Car brand");
-                            String carModel = car.getString("Car model");
-                            int year = car.getInt("Year");
-                            int seats = car.getInt("Car seats number");
-                            String gearType = car.getString("Gear type");
-                            String color = car.getString("Color");
-                            double pricePerDay = car.getDouble("Price per day");
-
-                            carList.add(new Car(carId, car_brand, carModel, year, seats, gearType, color, pricePerDay));
-                        }
-                        carAdapter.notifyDataSetChanged();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(HomePage.this, "Failed to parse JSON", Toast.LENGTH_SHORT).show();
-                    }
-                },
-                error -> Toast.makeText(HomePage.this, "Failed to fetch data", Toast.LENGTH_SHORT).show());
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(stringRequest);
-    }
-
-
-    private List<Car> parseJsonResponse(JSONArray response) {
-        List<Car> mercedesCars = new ArrayList<>();
-        try {
-            for (int i = 0; i < response.length(); i++) {
-                JSONObject carJson = response.getJSONObject(i);
-                String make = carJson.getString("make");
-                if (make.equalsIgnoreCase("Mercedes")) {
-                    String model = carJson.getString("model");
-                    int year = carJson.getInt("year");
-                    mercedesCars.add(new Car(model, year));
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return mercedesCars;
     }
 
     private void showToast(String message) {
