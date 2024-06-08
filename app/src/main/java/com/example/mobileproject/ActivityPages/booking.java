@@ -1,7 +1,10 @@
 package com.example.mobileproject.ActivityPages;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -15,11 +18,11 @@ public class booking extends AppCompatActivity {
     EditText firstname;
     EditText lastname;
     EditText ID;
-    EditText birthday;
+    DatePicker birthday;
 
-    EditText startDate;
+    DatePicker startDate;
 
-    EditText endDate;
+    DatePicker endDate;
 
     Switch switchTerm;
 
@@ -30,10 +33,13 @@ public class booking extends AppCompatActivity {
     Button btnPurchase;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_info);
+        btnPurchase = findViewById(R.id.btn_purchase);
+
 
         setupViews();
     }
@@ -49,6 +55,14 @@ public class booking extends AppCompatActivity {
         addPayment = findViewById(R.id.btn_add_payment);
         cardInfo = findViewById(R.id.card_info);
         btnPurchase = findViewById(R.id.btn_purchase);
+
+        btnPurchase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(booking.this, PaymentGateway.class);
+                startActivity(i);
+            }
+        });
 
     }
 }

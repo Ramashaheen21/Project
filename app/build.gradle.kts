@@ -43,6 +43,7 @@ dependencies {
     implementation("org.osmdroid:osmdroid-mapsforge:6.1.11")
     implementation ("com.stripe:stripe-java:25.0.0")
     implementation("com.stripe:stripe-android:20.44.2")
+    implementation ("com.android.volley:volley:1.2.0")
     implementation(libs.volley)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

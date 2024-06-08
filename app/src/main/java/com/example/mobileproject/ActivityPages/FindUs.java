@@ -1,7 +1,11 @@
 package com.example.mobileproject.ActivityPages;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.mobileproject.R;
@@ -14,13 +18,20 @@ import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.api.IMapController;
 
 public class FindUs extends AppCompatActivity {
-
+    private Button menu_Booking;
+    private Button menu_liked;
+    private Button menu_home;
+    private Button menu_account;
     private MapView mapView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_us);
+        menu_Booking = findViewById(R.id.button_booking);
+        menu_liked = findViewById(R.id.button_Location);
+        menu_home = findViewById(R.id.button_main);
+        menu_account = findViewById(R.id.button_profile);
 
         // Initialize the MapView
         mapView = findViewById(R.id.mapView);
@@ -54,6 +65,39 @@ public class FindUs extends AppCompatActivity {
                 return true;
             }
         });
+
+        menu_liked.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FindUs.this, HomePage.class);
+                startActivity(intent);
+                showToast("Liked clicked!");
+            }
+        });
+
+        menu_Booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(FindUs.this, booking.class);
+                startActivity(i);
+            }
+        });
+
+        menu_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), HomePage.class);
+                startActivity(i);
+            }
+        });
+
+        menu_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(FindUs.this, profile.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -72,5 +116,9 @@ public class FindUs extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 //        mapView.onDestroy();
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

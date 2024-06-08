@@ -1,3 +1,4 @@
+
 package com.example.mobileproject.ActivityPages;
 
 import android.content.Context;
@@ -12,22 +13,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mobileproject.ActivityPages.HomePage;
-import com.example.mobileproject.ActivityPages.SignUp;
 import com.example.mobileproject.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
+
 
 
 public class Login extends AppCompatActivity {
+
+    private static final String CORRECT_USERNAME_CUSTOMER = "test@customer.com";
+    private static final String CORRECT_PASSWORD_CUSTOMER = "12341234";
+    private static final String CORRECT_USERNAME_ADMIN = "test@admin.com";
+    private static final String CORRECT_PASSWORD_ADMIN = "56785678";
 
     private EditText username_txt;
     private EditText pw_txt;
@@ -44,6 +46,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        FirebaseApp.initializeApp(this);
+
         setupViews();
     }
 
@@ -59,32 +63,25 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 String userName = username_txt.getText().toString().trim();
                 String password = pw_txt.getText().toString().trim();
-                Customerlogin customer = new Customerlogin(userName,password);
 
                 isAllChecked = checkUsername();
                 if (isAllChecked) {
-                    colRef.whereEqualTo("email", userName)
-                            .whereEqualTo("password", password)
-                            .get()
-                            .addOnSuccessListener(queryDocumentSnapshots -> {
-                                if (!queryDocumentSnapshots.isEmpty()) {
-                                    DocumentSnapshot documentSnapshot = queryDocumentSnapshots.getDocuments().get(0);
-                                    String userId = documentSnapshot.getId();
-                                    Intent intent = new Intent(Login.this, HomePage.class);
-                                    intent.putExtra("userId", userId);
-
-                                    SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("userId", userId);
-                                    editor.apply();
-
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .addOnFailureListener(e -> Toast.makeText(Login.this, "Failed to Get Data", Toast.LENGTH_SHORT).show());
+                    SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.apply();
+                    if (userName.equals(CORRECT_USERNAME_CUSTOMER) && password.equals(CORRECT_PASSWORD_CUSTOMER)) {
+                        Intent intent = new Intent(Login.this, HomePage.class);
+                        startActivity(intent);
+                        showToast("Login succeeded!");
+                    }
+                    else if(userName.equals(CORRECT_USERNAME_ADMIN) && password.equals(CORRECT_PASSWORD_ADMIN)){
+                        //Intent intent = new Intent(Login.this, BusinessOwnerActivity.class);
+                        // startActivity(intent);
+                        // showToast("Login succeeded!");
+                    }
+                    else {
+                        showToast("Login failed!");
+                    }
                 }
             }
         });
@@ -122,6 +119,10 @@ public class Login extends AppCompatActivity {
 
         return true;
     }
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
 
 
 }

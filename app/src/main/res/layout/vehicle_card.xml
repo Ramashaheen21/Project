@@ -26,6 +26,12 @@
             android:layout_height="match_parent"
             android:background="@drawable/round_card"
             android:backgroundTint="@android:color/black">
+            <ImageView
+                android:id="@+id/card_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/vehicle"
@@ -33,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:text="Vehicle Name"
+                android:text=""
                 android:textColor="@color/Lightest"
                 android:textSize="20sp"
                 android:textStyle="bold"

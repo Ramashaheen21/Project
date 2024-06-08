@@ -40,10 +40,10 @@
 
             <Button
                 android:id="@+id/mercedesbtn"
-                android:layout_width="90dp"
+                android:layout_width="82dp"
                 android:layout_height="70dp"
-                android:drawableTop="@drawable/mercedes"
-                android:backgroundTint="@color/white" />
+                android:backgroundTint="@color/white"
+                android:drawableTop="@drawable/mercedes" />
 
             <Button
                 android:id="@+id/bmwbtn"
@@ -63,8 +63,8 @@
                 android:id="@+id/porschebtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
-                android:drawableTop="@drawable/porsche"
-                android:backgroundTint="@color/white" />
+                android:backgroundTint="@color/white"
+                android:drawableTop="@drawable/porsche" />
 
             <Button
                 android:id="@+id/ferraribtn"

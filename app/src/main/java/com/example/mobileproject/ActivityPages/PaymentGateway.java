@@ -8,7 +8,10 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -23,7 +26,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mobileproject.R;
-
 import com.stripe.android.PaymentConfiguration;
 import com.stripe.android.paymentsheet.PaymentSheet;
 import com.stripe.android.paymentsheet.PaymentSheetResult;
@@ -49,7 +51,26 @@ public class PaymentGateway extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking_info);
+
+        // Create a LinearLayout to hold UI components
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setGravity(Gravity.CENTER);
+        layout.setPadding(32, 32, 32, 32);
+
+        // Create the payment button
+        payment = new Button(this);
+        payment.setText("Add Payment");
+        payment.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        ));
+
+        // Add the button to the layout
+        layout.addView(payment);
+
+        // Set the layout as the content view
+        setContentView(layout);
 
         // Check and request notification permission if not granted
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -60,7 +81,6 @@ public class PaymentGateway extends AppCompatActivity {
 
         Value = getIntent().getIntExtra("TotalPrice", 350);
 
-        payment = findViewById(R.id.btn_add_payment);
         PaymentConfiguration.init(this, PublishableKey);
 
         paymentSheet = new PaymentSheet(this, this::onPaymentResult);
@@ -69,7 +89,7 @@ public class PaymentGateway extends AppCompatActivity {
     }
 
     private void createCustomerAndStartPaymentFlow() {
-        StringRequest request = new StringRequest(Request.Method.POST, "https://api.stripe.com/v1/customers",
+        StringRequest request = new StringRequest(Request.Method.POST, "https://mockapi.com/v1/customers",
                 response -> {
                     try {
                         JSONObject object = new JSONObject(response);
@@ -92,7 +112,7 @@ public class PaymentGateway extends AppCompatActivity {
     }
 
     private void createEphemeralKey(String customerId) {
-        StringRequest request = new StringRequest(Request.Method.POST, "https://api.stripe.com/v1/ephemeral_keys",
+        StringRequest request = new StringRequest(Request.Method.POST, "https://mockapi.com/v1/ephemeral_keys",
                 response -> {
                     try {
                         JSONObject object = new JSONObject(response);
@@ -124,7 +144,7 @@ public class PaymentGateway extends AppCompatActivity {
     }
 
     private void createPaymentIntent(String customerId, String ephemeralKey) {
-        StringRequest request = new StringRequest(Request.Method.POST, "https://api.stripe.com/v1/payment_intents",
+        StringRequest request = new StringRequest(Request.Method.POST, "https://mockapi.com/v1/payment_intents",
                 response -> {
                     try {
                         JSONObject object = new JSONObject(response);
@@ -215,19 +235,8 @@ public class PaymentGateway extends AppCompatActivity {
         notificationManagerCompat.notify(1, builder.build());
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, proceed with the notification
-                buildNotification();
-            } else {
-                // Permission denied, show a message to the user
-                Toast.makeText(this, "Notification permission is required to show notifications", Toast.LENGTH_SHORT).show();
-            }
-        }
     }
-
 }
