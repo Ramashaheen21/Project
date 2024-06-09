@@ -43,39 +43,42 @@
                 android:textStyle="bold"
                 android:textSize="25sp"
                 android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry"
                 android:text="Add Personal Info" />
 
             <EditText
                 android:id="@+id/first_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry"
                 android:hint="First Name" />
 
             <EditText
                 android:id="@+id/last_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry"
                 android:hint="Last Name" />
 
             <EditText
                 android:id="@+id/id_number"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:hint="ID Number"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/birthday"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_marginTop="15dp"
-                android:clickable="true"
                 android:focusable="false"
                 android:hint="Birthday"
                 android:paddingStart="10dp" />
@@ -83,26 +86,26 @@
             <EditText
                 android:id="@+id/start_date"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Start Date"
-                android:focusable="false"
+                android:layout_height="60dp"
                 android:layout_marginTop="15dp"
-                android:paddingStart="10dp"
-                android:clickable="true" />
+                android:focusable="false"
+                android:hint="Start Date"
+                android:paddingStart="10dp" />
 
             <EditText
                 android:id="@+id/end_date"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:hint="End Date"
                 android:focusable="false"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry"
                 android:clickable="true" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
                 android:gravity="center_vertical">
@@ -140,6 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry"
                 android:layout_marginTop="15dp"
                 android:visibility="gone" />
 
@@ -156,7 +160,8 @@
                     android:textSize="25sp"
                     android:paddingStart="10dp"
                     android:text="Add Payment Info"
-                    android:visibility="gone"/>
+                    android:visibility="gone"
+                    tools:ignore="RtlSymmetry" />
 
 
                 <!-- Credit card input fields -->
@@ -167,6 +172,7 @@
                     android:layout_marginTop="15dp"
                     android:hint="Card Number"
                     android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
                     android:inputType="number"
                     android:visibility="gone"/>
 
@@ -177,6 +183,7 @@
                     android:layout_marginTop="15dp"
                     android:hint="Exp Date"
                     android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
                     android:visibility="gone"/>
 
                 <EditText
@@ -187,6 +194,7 @@
                     android:hint="CVV"
                     android:inputType="number"
                     android:paddingStart="10dp"
+                    tools:ignore="RtlSymmetry"
                     android:visibility="gone"/>
 
 
@@ -203,6 +211,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
+                        tools:ignore="RtlSymmetry"
                         android:text="Save this payment information for future purchases"
                         android:visibility="gone"/>
 

@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@color/black"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/img_headerLogo"
+            android:layout_width="128dp"
+            android:layout_height="62dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logoblack" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/add_car_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:layout_below="@id/linearLayout">
+
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/black"
+            android:text="Add Car"/>
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/black"
+            android:text="Delete Car"/>
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/black"
+            android:text="Update Car"/>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -18,11 +18,11 @@ public class booking extends AppCompatActivity {
     EditText firstname;
     EditText lastname;
     EditText ID;
-    DatePicker birthday;
+    EditText birthday;
 
-    DatePicker startDate;
+    EditText startDate;
 
-    DatePicker endDate;
+    EditText endDate;
 
     Switch switchTerm;
 
@@ -59,7 +59,7 @@ public class booking extends AppCompatActivity {
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(booking.this, PaymentGateway.class);
+                Intent i = new Intent(booking.this, Payment.class);
                 startActivity(i);
             }
         });
