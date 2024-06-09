@@ -13,6 +13,6 @@ public class bookings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_bookings);
+        setContentView(R.layout.activity_booking_complete);
     }
 }

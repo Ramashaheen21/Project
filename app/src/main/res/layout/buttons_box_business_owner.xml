@@ -19,16 +19,6 @@
         android:drawableTop="@drawable/home" />
 
     <Button
-        android:id="@+id/button_booking"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/white"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:padding="16dp"
-        android:drawableTop="@drawable/checklist" />
-
-    <Button
         android:id="@+id/button_Location"
         android:layout_width="0dp"
         android:layout_height="80dp"

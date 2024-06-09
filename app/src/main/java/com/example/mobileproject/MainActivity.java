@@ -1,11 +1,19 @@
 package com.example.mobileproject;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.example.mobileproject.ActivityPages.Login;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.mobileproject.ActivityPages.Splash;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -18,5 +26,8 @@ public class MainActivity extends AppCompatActivity {
         Intent loginIntent = new Intent(MainActivity.this, Splash.class);
         startActivity(loginIntent);
         finish();
+
+
     }
+
 }
