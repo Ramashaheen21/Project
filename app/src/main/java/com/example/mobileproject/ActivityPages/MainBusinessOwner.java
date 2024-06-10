@@ -13,6 +13,9 @@ public class MainBusinessOwner extends AppCompatActivity {
 
     private Button mancar;
     private Button manbook;
+    private Button btnmain;
+    private Button btnLocation;
+    private Button btnprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,9 @@ public class MainBusinessOwner extends AppCompatActivity {
         // Initialize buttons
         mancar = findViewById(R.id.mancar);
         manbook = findViewById(R.id.manbook);
+        btnmain = findViewById(R.id.button_main);
+        btnprofile = findViewById(R.id.button_profile);
+        btnLocation = findViewById(R.id.button_Location);
 
         mancar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,5 +40,34 @@ public class MainBusinessOwner extends AppCompatActivity {
             }
         });
 
+        manbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainBusinessOwner.this , manageBooking.class);
+                startActivity(intent);
+            }
+        });
+
+        btnprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent i = new Intent(MainBusinessOwner.this, ProfileBusinessOwner.class);
+                    startActivity(i);
+            }
+        });
+        btnLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainBusinessOwner.this, Report.class);
+                startActivity(i);
+            }
+        });
+        btnmain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), MainBusinessOwner.class);
+                startActivity(i);
+            }
+        });
     }
-    }
+}

@@ -82,7 +82,7 @@ public class HomePage extends AppCompatActivity {
         menu_Booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(HomePage.this, booking.class);
+                Intent i = new Intent(HomePage.this, DisplayBooking.class);
                 startActivity(i);
             }
         });
@@ -107,6 +107,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, CarListView.class);
+                i.putExtra("carBrand", "Mercedes-Benz");
                 startActivity(i);
             }
         });
@@ -115,6 +116,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, CarListView.class);
+                i.putExtra("carBrand", "BMW");
                 startActivity(i);
             }
         });
@@ -123,6 +125,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, CarListView.class);
+                i.putExtra("carBrand", "Porsche");
                 startActivity(i);
             }
         });
@@ -130,6 +133,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, CarListView.class);
+                i.putExtra("carBrand", "Bentley");
                 startActivity(i);
             }
         });
@@ -137,6 +141,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, CarListView.class);
+                i.putExtra("carBrand", "Ferrari");
                 startActivity(i);
             }
         });
@@ -144,6 +149,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, CarListView.class);
+                i.putExtra("carBrand", "Aston Martin");
                 startActivity(i);
             }
         });

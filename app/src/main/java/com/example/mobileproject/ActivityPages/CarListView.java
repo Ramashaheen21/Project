@@ -1,8 +1,13 @@
 package com.example.mobileproject.ActivityPages;
-import android.os.Bundle;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,58 +25,74 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-
 public class CarListView extends AppCompatActivity {
     private RequestQueue queue;
-
     private ListView listView;
+    private ArrayList<String> lstcars;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_list_view);
+        listView = findViewById(R.id.carListView);
+
+        // Initialize the RequestQueue
         queue = Volley.newRequestQueue(this);
 
-        listView = findViewById(R.id.carListView);
+        // Initialize the car list
+        lstcars = new ArrayList<>();
+
+        String carBrand = getIntent().getStringExtra("carBrand");
+
+        // Fetch data when the activity is created
+        fetchDataFromServer(carBrand);
+
+        // Set an item click listener for the ListView
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedCar = lstcars.get(position);
+                Intent carinfointent = new Intent(CarListView.this, carInfo.class);
+                carinfointent.putExtra("carInfo", selectedCar);
+                startActivity(carinfointent);
+            }
+        });
     }
 
-    private void fetchDataFromServer() {
-
-        String url = "http://10.0.0.2/carPHP/PHPcar.php?cat= Mercedes-Benz";
+    private void fetchDataFromServer(String carBrand) {
+        // Use your machine's IP address or a proper URL
+        String url = "http://10.0.2.2/carPHP/PHPcar.php?cat=" + carBrand;
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        ArrayList<String> lstcars = new ArrayList<>();
-
+                        Log.d("CarListView", "Response received: " + response.toString());
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject jsonObject = response.getJSONObject(i);
                                 String model = jsonObject.getString("Car model");
-                                int year = jsonObject.getInt(" Year");
+                                int year = jsonObject.getInt("Year");
                                 String carInfo = model + " - " + year;
                                 lstcars.add(carInfo);
                             }
-                            ArrayAdapter<String> adapter = new ArrayAdapter<String>(CarListView.this,
+                            ArrayAdapter<String> adapter = new ArrayAdapter<>(CarListView.this,
                                     android.R.layout.simple_list_item_1, lstcars);
                             listView.setAdapter(adapter);
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                            Log.e("CarListView", "JSON parsing error: " + e.getMessage());
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Handle Volley error
+                        Log.e("CarListView", "Error fetching data: " + error.getMessage());
+                        Toast.makeText(CarListView.this, "Error fetching data", Toast.LENGTH_SHORT).show();
                     }
                 });
 
         // Add the request to the RequestQueue
         queue.add(jsonArrayRequest);
-
     }
-
-
 }

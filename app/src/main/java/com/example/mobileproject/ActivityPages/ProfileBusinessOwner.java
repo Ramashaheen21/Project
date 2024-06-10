@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobileproject.R;
 
-public class Report extends AppCompatActivity {
+public class ProfileBusinessOwner extends AppCompatActivity {
     private Button btnmain;
     private Button btnLocation;
     private Button btnprofile;
@@ -18,7 +18,7 @@ public class Report extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_report);
+        setContentView(R.layout.activity_profile_bussiness_owner);
         setupViews();
     }
 
@@ -34,7 +34,7 @@ public class Report extends AppCompatActivity {
         btnprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Report.this, ProfileBusinessOwner.class);
+                Intent i = new Intent(getApplicationContext(), ProfileBusinessOwner.class);
                 startActivity(i);
             }
         });
@@ -48,7 +48,7 @@ public class Report extends AppCompatActivity {
         btnmain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Report.this, MainBusinessOwner.class);
+                Intent i = new Intent(getApplicationContext(), MainBusinessOwner.class);
                 startActivity(i);
             }
         });
