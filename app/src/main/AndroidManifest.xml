@@ -58,6 +58,10 @@
         <activity android:name=".ActivityPages.booking" />
         <activity android:name=".ActivityPages.profile" />
         <activity android:name=".ActivityPages.MainBusinessOwner" />
+        <activity android:name=".ActivityPages.manageCars" />
+        <activity android:name=".ActivityPages.AddCar" />
+        <activity android:name=".ActivityPages.DeleteCar" />
+        <activity android:name=".ActivityPages.UpdateCar" />
 
 
     </application>
