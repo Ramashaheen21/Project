@@ -166,7 +166,7 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, CarListView.class);
+                Intent i = new Intent(HomePage.this, carInfo.class);
                 startActivity(i);
             }
         });
@@ -188,9 +188,6 @@ public class HomePage extends AppCompatActivity {
         vehicle3.setText("Mercedes-Benz SLK-Class (R171)");
         price3.setText("$290/day");
         loadImageFromAssets("carPhotos/m008.png", vehicleImage3);
-
-
-
     }
 
     private void loadImageFromAssets(String filePath, ImageView imageView) {

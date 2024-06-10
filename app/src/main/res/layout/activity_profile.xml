@@ -239,4 +239,23 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:ignore="MissingConstraints">
+
+        <include
+            android:id="@+id/box_buttons"
+            layout="@layout/buttons_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="620dp" />
+
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

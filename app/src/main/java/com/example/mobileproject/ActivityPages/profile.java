@@ -23,6 +23,7 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile);
+
         menu_Booking = findViewById(R.id.button_booking);
         menu_liked = findViewById(R.id.button_Location);
         menu_home = findViewById(R.id.button_main);

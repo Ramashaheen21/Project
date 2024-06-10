@@ -75,9 +75,9 @@ public class Login extends AppCompatActivity {
                         showToast("Login succeeded!");
                     }
                     else if(userName.equals(CORRECT_USERNAME_ADMIN) && password.equals(CORRECT_PASSWORD_ADMIN)){
-                        //Intent intent = new Intent(Login.this, BusinessOwnerActivity.class);
-                        // startActivity(intent);
-                        // showToast("Login succeeded!");
+                        Intent intent = new Intent(Login.this, MainBusinessOwner.class);
+                        startActivity(intent);
+                        showToast("Login succeeded!");
                     }
                     else {
                         showToast("Login failed!");
