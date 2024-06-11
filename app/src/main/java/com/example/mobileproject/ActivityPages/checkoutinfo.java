@@ -24,7 +24,7 @@ public class checkoutinfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add_bookinginfo);
 
         FirstName = findViewById(R.id.first_name);
         LastName = findViewById(R.id.last_name);
@@ -33,9 +33,9 @@ public class checkoutinfo extends AppCompatActivity {
         etStartDate = findViewById(R.id.start_date);
         etEndDate = findViewById(R.id.end_date);
         switchTerms = findViewById(R.id.switch_terms);
-        btnAddPayment = findViewById(R.id.btn_add_payment);
+      // btnAddPayment = findViewById(R.id.btn_add_payment);
         btnPurchase = findViewById(R.id.btn_purchase);
-        lvCardInfo = findViewById(R.id.card_info);
+     //   lvCardInfo = findViewById(R.id.card_info);
 
         // Date picker for birthday
         etBirthday.setOnClickListener(view -> showDatePickerDialog(etBirthday));

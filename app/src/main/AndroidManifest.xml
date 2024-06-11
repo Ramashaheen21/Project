@@ -65,6 +65,9 @@
         <activity android:name=".ActivityPages.ProfileBusinessOwner" />
         <activity android:name=".ActivityPages.manageBooking" />
         <activity android:name=".ActivityPages.Report" />
+        <activity android:name=".ActivityPages.Payment" />
+
+
 
 
 

@@ -30,6 +30,7 @@ public class CarListView extends AppCompatActivity {
     private ListView listView;
     private ArrayList<String> lstcars;
 
+    private String model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +53,11 @@ public class CarListView extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedCar = lstcars.get(position);
+                String[] carInfoParts = selectedCar.split(" - ");
+                String selectedCarModel = carInfoParts[0]; // Extract the selected car model
                 Intent carinfointent = new Intent(CarListView.this, carInfo.class);
-                carinfointent.putExtra("carInfo", selectedCar);
+                carinfointent.putExtra("carBrand", carBrand);
+                carinfointent.putExtra("carModel", selectedCarModel); // Pass the selected car model
                 startActivity(carinfointent);
             }
         });
@@ -71,8 +75,9 @@ public class CarListView extends AppCompatActivity {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject jsonObject = response.getJSONObject(i);
-                                String model = jsonObject.getString("Car model");
+                                model = jsonObject.getString("Car model");
                                 int year = jsonObject.getInt("Year");
+
                                 String carInfo = model + " - " + year;
                                 lstcars.add(carInfo);
                             }
