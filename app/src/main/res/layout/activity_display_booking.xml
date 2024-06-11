@@ -21,19 +21,20 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
             android:background="@color/white"
             android:orientation="vertical">
@@ -44,7 +45,7 @@
                 android:layout_gravity="start"
                 android:layout_margin="10dp"
                 android:layout_marginStart="5dp"
-                android:text="Bookings"
+                android:text="@string/bookings_display_bookings"
                 android:textColor="@color/black"
                 android:textSize="34sp"
                 android:textStyle="bold" />
@@ -69,8 +70,6 @@
             layout="@layout/buttons_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="620dp" />
 

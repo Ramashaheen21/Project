@@ -22,7 +22,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -49,7 +50,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Find us?"
+                android:text="@string/find_us_string_find_us"
                 android:layout_gravity="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -60,7 +61,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="You can find us in the location below"
+                android:text="@string/you_can_find_us_in_the_location_below_string_find_us"
                 android:layout_gravity="center"
                 android:textSize="16sp"
                 android:paddingBottom="20dp"/>
@@ -76,7 +77,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Birzeit University - Ramallah (Palestine)"
+                android:text="@string/birzeit_university_ramallah_palestine_string_find_us"
                 android:layout_gravity="center"
                 android:textSize="16sp"
                 android:paddingBottom="20dp"/>
@@ -95,8 +96,6 @@
             layout="@layout/buttons_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="620dp" />
 

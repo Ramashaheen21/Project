@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -19,7 +20,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -45,7 +47,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Filter Options"
+                    android:text="@string/filter_options_string_report"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
@@ -62,7 +64,7 @@
                         android:layout_marginEnd="15dp"
                         android:textSize="18sp"
                         android:textColor="@color/black"
-                        android:text="Date Range:" />
+                        android:text="@string/date_range_string_report" />
 
                     <Button
                         android:id="@+id/btn_date_range"
@@ -71,7 +73,7 @@
                         android:backgroundTint="@color/black"
                         android:textSize="15sp"
                         android:textColor="@color/white"
-                        android:text="Select Date" />
+                        android:text="@string/select_date_string_report" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -86,11 +88,11 @@
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:layout_marginEnd="10dp"
-                        android:text="Car Brand:" />
+                        android:text="@string/car_brand_string_report" />
 
                     <Spinner
                         android:id="@+id/spinner_car_model"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="48dp" />
                 </LinearLayout>
@@ -107,7 +109,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Summary"
+                    android:text="@string/summary_string_report"
                     android:layout_marginBottom="25dp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -123,7 +125,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Total Rentals: "
+                        android:text="@string/total_rentals_string_report"
                         android:textSize="18sp" />
 
                     <TextView
@@ -144,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Total Revenue: "
+                        android:text="@string/total_revenue_string_report"
                         android:textSize="18sp" />
 
                     <TextView
@@ -165,7 +167,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:text="Most Rented Car: "
+                        android:text="@string/most_rented_car_string_report"
                         android:textSize="18sp" />
 
                     <TextView

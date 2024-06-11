@@ -14,7 +14,8 @@
         android:layout_height="220dp"
         android:background="@color/black"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/classicphotocover" />
+        app:srcCompat="@drawable/classicphotocover"
+        tools:ignore="ContentDescription" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -52,7 +53,7 @@
                 android:layout_height="45dp"
                 android:background="@color/white"
                 android:layout_gravity="center"
-                android:text="Click To Find more Info About Us!"
+                android:text="@string/click_to_find_more_info_about_us_string_profile"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -76,7 +77,8 @@
                         android:layout_height="59dp"
                         android:layout_margin="1dp"
                         android:background="@drawable/name_tag"
-                        app:srcCompat="@drawable/name_tag" />
+                        app:srcCompat="@drawable/name_tag"
+                        tools:ignore="ContentDescription" />
 
                     <ImageView
                         android:id="@+id/imageView12"
@@ -85,7 +87,9 @@
                         android:layout_margin="5dp"
                         android:layout_marginTop="80dp"
                         android:paddingTop="5dp"
-                        app:srcCompat="@drawable/email" />
+                        app:srcCompat="@drawable/email"
+                        tools:ignore="ContentDescription" />
+
 
                     <ImageView
                         android:id="@+id/imageView13"
@@ -94,21 +98,27 @@
                         android:layout_margin="5dp"
                         android:layout_marginTop="80dp"
                         android:paddingTop="5dp"
-                        app:srcCompat="@drawable/call" />
+                        app:srcCompat="@drawable/call"
+                        tools:ignore="ContentDescription" />
+
 
                     <ImageView
                         android:id="@+id/imageView14"
                         android:layout_width="48dp"
                         android:layout_height="43dp"
                         android:paddingTop="5dp"
-                        app:srcCompat="@drawable/gender" />
+                        app:srcCompat="@drawable/gender"
+                        tools:ignore="ContentDescription" />
+
 
                     <ImageView
                         android:id="@+id/imageView15"
                         android:layout_width="48dp"
                         android:layout_height="43dp"
                         android:layout_margin="5dp"
-                        app:srcCompat="@drawable/birthday" />
+                        app:srcCompat="@drawable/birthday"
+                        tools:ignore="ContentDescription" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -120,7 +130,7 @@
                         android:id="@+id/fnameLable"
                         android:layout_height="35dp"
                         android:layout_width="120dp"
-                        android:text="First name"
+                        android:text="@string/first_name_string_profile"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -132,7 +142,7 @@
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:text="Last name" />
+                        android:text="@string/last_name_string_profile" />
 
                     <TextView
                         android:id="@+id/emailLable"
@@ -141,7 +151,7 @@
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:text="Email" />
+                        android:text="@string/email_string_profile" />
 
                     <TextView
                         android:id="@+id/phoneLable"
@@ -150,7 +160,7 @@
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:text="Phone number" />
+                        android:text="@string/phone_number_string_profile" />
 
                     <TextView
                         android:id="@+id/citiLable"
@@ -159,13 +169,13 @@
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:text="Gender" />
+                        android:text="@string/gender_string_profile" />
 
                     <TextView
                         android:id="@+id/BODlable"
                         android:layout_width="120dp"
                         android:layout_height="50dp"
-                        android:text="Date of birth"
+                        android:text="@string/date_of_birth_string_profile"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -234,7 +244,7 @@
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/black"
-                android:text="Logout"
+                android:text="@string/logout_string_profile"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold"

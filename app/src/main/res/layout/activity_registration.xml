@@ -10,13 +10,13 @@
 
     <Button
         android:id="@+id/registration_btn"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:width="180dp"
         android:backgroundTint="#D21B1717"
         android:elegantTextHeight="true"
-        android:text="register"
+        android:text="@string/register_string_signup"
         android:textSize="14sp"
         android:textStyle="bold"
         app:cornerRadius="10dp"
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="Unlock your journy with us!"
+        android:text="@string/unlock_your_journy_with_us_string_signup"
         android:textColor="#F6F6F6"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Register"
+        android:text="@string/register_string_signup2"
         android:textColor="#EFEDED"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,12 +65,12 @@
     <EditText
         android:id="@+id/firstname_txt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="#565A56"
         android:ems="10"
         android:gravity="center"
-        android:hint="First Name"
+        android:hint="@string/first_name_string_signup"
         android:inputType="textPersonName"
         android:textColor="#FFFDFD"
         android:textColorHint="#FFFFFF"
@@ -79,17 +79,17 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/motto2_txt"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="Autofill,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/lastname_txt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:backgroundTint="#565A56"
         android:ems="10"
         android:gravity="center"
-        android:hint="Last Name"
+        android:hint="@string/last_name_string_signup"
         android:background="@drawable/login_custom"
         android:inputType="textPersonName"
         android:textColor="#FFFDFD"
@@ -98,20 +98,19 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstname_txt"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="Autofill,TouchTargetSizeCheck" />
 
     <Spinner
         android:id="@+id/gender_spn"
         android:layout_width="211dp"
         android:layout_height="47dp"
         android:layout_marginTop="12dp"
-        android:backgroundTint="#2A9E9A9A"
-        android:foregroundTintMode="screen"
-        android:popupBackground="#565A56"
-        android:textAlignment="center"
         android:background="@drawable/login_custom"
+        android:foregroundTintMode="screen"
+        android:popupBackground="@color/white"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastname_txt"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -119,12 +118,12 @@
     <EditText
         android:id="@+id/username_txt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:backgroundTint="#565A56"
         android:ems="10"
         android:gravity="center"
-        android:hint="Username"
+        android:hint="@string/username_string_signup"
         android:inputType="textPersonName"
         android:textColor="#FFFDFD"
         android:textColorHint="#FFFFFF"
@@ -133,17 +132,17 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gender_spn"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="Autofill,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/number_txt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:backgroundTint="#565A56"
         android:ems="10"
         android:gravity="center"
-        android:hint="Phone Number"
+        android:hint="@string/phone_number_string_signup"
         android:inputType="textPersonName"
         android:textColor="#FFFDFD"
         android:textColorHint="#FFFFFF"
@@ -152,17 +151,17 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_txt"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="Autofill,TextFields,TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:backgroundTint="#565A56"
         android:ems="10"
         android:gravity="center"
-        android:hint="Password"
+        android:hint="@string/password_string_signup"
         android:inputType="textPassword"
         android:textColor="#FFFDFD"
         android:textColorHint="#FFFFFF"
@@ -171,7 +170,7 @@
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/number_txt"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="Autofill,TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/registeredaccount_txt"
@@ -179,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginBottom="14dp"
-        android:text="Already Have an Account?"
+        android:text="@string/already_have_an_account_string_signup"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/login_page_btn"
@@ -187,23 +186,22 @@
 
     <Button
         android:id="@+id/login_page_btn"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="160dp"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
         android:layout_marginBottom="16dp"
-        android:width="180dp"
-        android:backgroundTint="#97535050"
+        android:background="@drawable/login_custom"
+        android:backgroundTint="@color/white"
         android:elegantTextHeight="true"
-        android:foregroundGravity="center"
-        android:gravity="center"
-        android:text="sign in"
+        android:text="@string/sign_in_string_signup"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:background="@drawable/login_custom"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.962" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

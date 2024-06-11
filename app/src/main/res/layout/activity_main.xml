@@ -21,7 +21,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -43,42 +44,48 @@
                 android:layout_width="82dp"
                 android:layout_height="70dp"
                 android:backgroundTint="@color/white"
-                android:drawableTop="@drawable/mercedes" />
+                android:drawableTop="@drawable/mercedes"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/bmwbtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:drawableTop="@drawable/bmw"
-                android:backgroundTint="@color/white" />
+                android:backgroundTint="@color/white"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/bentleybtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:backgroundTint="@color/white"
-                android:drawableTop="@drawable/bentley" />
+                android:drawableTop="@drawable/bentley"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/porschebtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:backgroundTint="@color/white"
-                android:drawableTop="@drawable/porsche" />
+                android:drawableTop="@drawable/porsche"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/ferraribtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:drawableTop="@drawable/ferrari"
-                android:backgroundTint="@color/white" />
+                android:backgroundTint="@color/white"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/astonMartinbtn"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:drawableTop="@drawable/aston_martin"
-                android:backgroundTint="@color/white" />
+                android:backgroundTint="@color/white"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -93,21 +100,22 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="10dp"
             android:background="@color/white">
 
-            <EditText
-                android:id="@+id/search_txt"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:layout_marginStart="5dp"
-                android:hint="Search"
-                android:textColor="@color/black"
-                android:background="@drawable/round_edit_txt"
-                android:textStyle="bold"
-                android:paddingStart="20dp"
-                android:textSize="20sp" />
+<!--            <EditText-->
+<!--                android:id="@+id/search_txt"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:hint="@string/search_main_page"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:background="@drawable/round_edit_txt"-->
+<!--                android:textStyle="bold"-->
+<!--                android:paddingStart="20dp"-->
+<!--                android:textSize="20sp"-->
+<!--                tools:ignore="Autofill,RtlSymmetry,TextFields" />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -115,7 +123,7 @@
                 android:layout_gravity="start"
                 android:layout_margin="10dp"
                 android:layout_marginStart="5dp"
-                android:text="Trending"
+                android:text="@string/trending_main_page"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="34sp" />
@@ -151,8 +159,6 @@
             layout="@layout/buttons_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="620dp" />
 

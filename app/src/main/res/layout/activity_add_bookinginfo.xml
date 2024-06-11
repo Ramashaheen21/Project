@@ -44,7 +44,7 @@
                 android:textSize="25sp"
                 android:paddingStart="10dp"
                 tools:ignore="RtlSymmetry"
-                android:text="Add Personal Info" />
+                android:text="@string/add_personal_info_string_addbinfo" />
 
             <EditText
                 android:id="@+id/first_name"
@@ -53,7 +53,7 @@
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
                 tools:ignore="RtlSymmetry"
-                android:hint="First Name" />
+                android:hint="@string/first_name_string_addbinfo" />
 
             <EditText
                 android:id="@+id/last_name"
@@ -62,13 +62,13 @@
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
                 tools:ignore="RtlSymmetry"
-                android:hint="Last Name" />
+                android:hint="@string/last_name__string_addbinfo" />
 
             <EditText
                 android:id="@+id/id_number"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:hint="ID Number"
+                android:hint="@string/id_number_string_addbinfo"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
                 tools:ignore="RtlSymmetry"
@@ -80,8 +80,9 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:focusable="false"
-                android:hint="Birthday"
-                android:paddingStart="10dp" />
+                android:hint="@string/birthday_string_addbinfo"
+                android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry" />
 
             <EditText
                 android:id="@+id/start_date"
@@ -89,14 +90,15 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:focusable="false"
-                android:hint="Start Date"
-                android:paddingStart="10dp" />
+                android:hint="@string/start_date_string_addbinfo"
+                android:paddingStart="10dp"
+                tools:ignore="RtlSymmetry" />
 
             <EditText
                 android:id="@+id/end_date"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:hint="End Date"
+                android:hint="@string/end_date_string_addbinfo"
                 android:focusable="false"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
@@ -114,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="20dp"
-                    android:text="Do you agree to our terms and conditions?"
+                    android:text="@string/do_you_agree_to_our_terms_and_conditions_string_addbinfo"
                     android:textSize="16sp"
                     tools:ignore="RtlSymmetry" />
 
@@ -122,7 +124,8 @@
                     android:id="@+id/switch_terms"
                     android:layout_width="80dp"
                     android:layout_height="50dp"
-                    android:layout_marginStart="5dp" />
+                    android:layout_marginStart="5dp"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
             </LinearLayout>
 
 <!--            <Button-->
@@ -162,7 +165,7 @@
                     android:textSize="25sp"
                     android:paddingStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Add Payment Info"
+                    android:text="@string/add_payment_info_string_addbinfo"
                     tools:ignore="RtlSymmetry" />
 
 
@@ -172,29 +175,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:hint="Card Number"
+                    android:hint="@string/card_number_string_addbinfo"
                     android:paddingStart="10dp"
-                    tools:ignore="RtlSymmetry"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    tools:ignore="Autofill,RtlSymmetry,TextFields"/>
 
                 <EditText
                     android:id="@+id/card_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:hint="Exp Date"
+                    android:hint="@string/exp_date_string_addbinfo"
                     android:paddingStart="10dp"
-                    tools:ignore="RtlSymmetry"/>
+                    tools:ignore="Autofill,RtlSymmetry,TextFields"/>
 
                 <EditText
-                    android:id="@+id/card_cvv"
+                    android:id="@+id/card_cvc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:hint="CVV"
+                    android:hint="@string/cvc_string_addbinfo"
                     android:inputType="number"
                     android:paddingStart="10dp"
-                    tools:ignore="RtlSymmetry"/>
+                    tools:ignore="Autofill,RtlSymmetry,TextFields"/>
 
 
                 <!-- Checkbox to save payment info -->
@@ -211,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
                         tools:ignore="RtlSymmetry"
-                        android:text="Save this payment information for future purchases" />
+                        android:text="@string/save_this_payment_information_for_future_purchases_string_addbinfo" />
 
                 </LinearLayout>
 
@@ -226,7 +229,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:backgroundTint="@color/black"
-                    android:text="Rent"/>
+                    android:text="@string/rent_string_addbinfo"/>
 
             </LinearLayout>
 

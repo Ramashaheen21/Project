@@ -21,7 +21,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -41,11 +42,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
-                android:background="@drawable/classicphotocover"/>
+                android:background="@drawable/classicphotocover"
+                tools:ignore="ContentDescription" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:ignore="UselessLeaf" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -61,10 +64,11 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
                     android:backgroundTint="@color/white"
-                    android:text="Manage Cars"
+                    android:text="@string/manage_cars_mainB_page"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="ButtonStyle" />
 
                 <Button
                     android:id="@+id/manbook"
@@ -73,10 +77,11 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
                     android:backgroundTint="@color/white"
-                    android:text="Manage Bookings"
+                    android:text="@string/manage_bookings_mainB_page"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="ButtonStyle" />
 
             </LinearLayout>
         </LinearLayout>
@@ -91,8 +96,6 @@
             layout="@layout/buttons_box_business_owner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="620dp" />
 

@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="About Us?"
+        android:text="@string/about_us_string_about_us_act"
         android:textAlignment="center"
         android:fontFamily="times new roman"
         android:textSize="32sp"

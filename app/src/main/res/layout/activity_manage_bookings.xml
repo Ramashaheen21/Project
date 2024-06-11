@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -18,7 +19,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -34,7 +36,7 @@
             android:id="@+id/tv_booking_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Booking List"
+            android:text="@string/booking_list_manage_booking"
             android:textStyle="bold"
             android:textSize="24sp"
             android:layout_marginBottom="8dp" />
@@ -62,35 +64,35 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Customer Name" />
+                android:text="@string/customer_name_manage_booking" />
 
             <TextView
                 android:id="@+id/tv_car_details"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Car Details" />
+                android:text="@string/car_details_manage_booking" />
 
             <TextView
                 android:id="@+id/tv_booking_status"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Booking Status" />
+                android:text="@string/booking_status_manage_booking" />
 
             <Button
                 android:id="@+id/btn_update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
-                android:text="Update" />
+                android:text="@string/update_manage_booking" />
 
             <Button
                 android:id="@+id/btn_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
-                android:text="Cancel" />
+                android:text="@string/cancel_manage_booking" />
         </LinearLayout>
 
     </LinearLayout>

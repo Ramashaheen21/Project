@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -18,7 +19,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -35,43 +37,51 @@
             android:id="@+id/et_id"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="ID" />
+            android:hint="@string/id_manage_add_car"
+            tools:ignore="Autofill,TextFields" />
 
         <EditText
             android:id="@+id/et_brand_model"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Brand Model" />
+            android:hint="@string/brand_model_manage_add_car"
+            tools:ignore="Autofill,TextFields" />
 
         <EditText
             android:id="@+id/et_seat_number"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Seat Number" />
+            android:hint="@string/seat_number_manage_add_car"
+            tools:ignore="Autofill,TextFields" />
+
 
         <EditText
             android:id="@+id/et_color"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Color" />
+            android:hint="@string/color_manage_add_car"
+            tools:ignore="Autofill,TextFields" />
 
         <EditText
             android:id="@+id/et_gear_type"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Gear Type" />
+            android:hint="@string/gear_type_manage_add_car"
+            tools:ignore="Autofill,TextFields" />
 
         <EditText
             android:id="@+id/et_price_per_day"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Price per Day" />
+            android:hint="@string/price_per_day_manage_add_car"
+            tools:ignore="Autofill,TextFields" />
 
         <EditText
             android:id="@+id/et_year"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Year" />
+            android:hint="@string/year_manage_add_car"
+            tools:ignore="Autofill,TextFields" />
 
         <!-- Add Button -->
         <Button
@@ -84,7 +94,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/black"
-            android:text="Add"/>
+            android:text="@string/add_manage_add_car"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -9,13 +9,13 @@
         android:id="@+id/tv_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Model"
+        android:text="@string/model_string_item_car"
         android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Year"
+        android:text="@string/year_string_item_car"
         android:textSize="16sp" />
 </LinearLayout>

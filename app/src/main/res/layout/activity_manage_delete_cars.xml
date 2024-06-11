@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -19,7 +20,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -37,7 +39,7 @@
             android:id="@+id/et_id"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Delete By ID" />
+            android:hint="@string/delete_by_id_manage_delete_car" />
 
         <!-- Add Button -->
         <Button
@@ -50,7 +52,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/black"
-            android:text="Delete"/>
+            android:text="@string/delete_manage_delete_car"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

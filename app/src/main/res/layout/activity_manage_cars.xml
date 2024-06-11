@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -19,7 +20,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -43,7 +45,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/black"
-            android:text="Add Car"/>
+            android:text="@string/add_car_manage_car"/>
 
         <Button
             android:id="@+id/btn_delete"
@@ -55,7 +57,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/black"
-            android:text="Delete Car"/>
+            android:text="@string/delete_car_manage_car"/>
 
         <Button
             android:id="@+id/btn_update"
@@ -67,7 +69,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/black"
-            android:text="Update Car"/>
+            android:text="@string/update_car_manage_car"/>
 
 
 

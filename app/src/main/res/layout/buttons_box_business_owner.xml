@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:backgroundTint="@color/white"
@@ -16,7 +17,8 @@
         android:backgroundTint="@color/white"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="16dp"
-        android:drawableTop="@drawable/home" />
+        android:drawableTop="@drawable/home"
+        tools:ignore="ButtonStyle" />
 
     <Button
         android:id="@+id/button_Location"
@@ -26,7 +28,8 @@
         android:backgroundTint="@color/white"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="16dp"
-        android:drawableTop="@drawable/reports" />
+        android:drawableTop="@drawable/reports"
+        tools:ignore="ButtonStyle" />
 
     <Button
         android:id="@+id/button_profile"
@@ -36,6 +39,7 @@
         android:backgroundTint="@color/white"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:drawableTop="@drawable/profile"
-        android:padding="16dp" />
+        android:padding="16dp"
+        tools:ignore="ButtonStyle" />
 
 </LinearLayout>

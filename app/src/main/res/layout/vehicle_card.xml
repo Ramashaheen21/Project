@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="ContentDescription,MissingConstraints" />
 
             <TextView
                 android:id="@+id/vehicle"
@@ -39,8 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="8dp"
-                android:text=""
-                android:textColor="@color/Lightest"
+                android:text="@string/model_string_card"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,13 +48,13 @@
 
             <Button
                 android:id="@+id/book"
-                android:layout_width="124dp"
-                android:layout_height="46dp"
-                android:text="Book"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:layout_width="135dp"
+                android:layout_height="57dp"
                 android:background="@drawable/select_button"
                 android:backgroundTint="@color/white"
+                android:text="@string/book_string_card"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -62,7 +62,7 @@
                 android:id="@+id/detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Details"
+                android:text="@string/details_string_card"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/book"
@@ -73,8 +73,8 @@
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$75/day"
-                android:textColor="@color/Lightest"
+                android:text="@string/price_string_card"
+                android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/vehicle"
                 app:layout_constraintTop_toBottomOf="@+id/vehicle" />
@@ -88,7 +88,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/price"
-                app:layout_constraintVertical_bias="0.09" />
+                app:layout_constraintVertical_bias="0.09"
+                tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
