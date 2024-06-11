@@ -44,7 +44,6 @@ public class profile extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(profile.this, HomePage.class);
                 startActivity(intent);
-                showToast("Liked clicked!");
             }
         });
 
