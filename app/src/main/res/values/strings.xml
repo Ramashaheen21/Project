@@ -97,4 +97,6 @@ Address: Birzeit University, Birzeit, Ramallah, Palestine
     <string name="book_string_card">Book</string>
     <string name="details_string_card">Details</string>
     <string name="price_string_card">$75/day</string>
+    <string name="bookingstatus_manage_booking">Booking Status :</string>
+    <string name="booking_date_manage_booking">Booking Date :</string>
 </resources>
