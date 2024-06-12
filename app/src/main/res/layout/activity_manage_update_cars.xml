@@ -85,6 +85,15 @@
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/black"
             android:text="Update"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/car_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/add_car_section"
+            android:padding="16dp" />
+
     </LinearLayout>
 
 </RelativeLayout>
