@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -112,6 +113,18 @@ public class booking extends AppCompatActivity {
                         Toast.makeText(booking.this, "Error adding booking: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+
+        LinearLayout paymentInfo = findViewById(R.id.paymentInfo);
+
+        // Set the paymentInfo visibility based on the switch state
+        switchTerms.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                paymentInfo.setVisibility(View.VISIBLE);
+            } else {
+                paymentInfo.setVisibility(View.GONE);
+            }
+        });
+
     }
 
     private boolean validateFields() {

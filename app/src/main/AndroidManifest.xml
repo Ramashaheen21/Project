@@ -44,6 +44,9 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ActivityPages.aboutus"
+            android:exported="false" />
+        <activity
             android:name=".ActivityPages.carInfo"
             android:exported="false" />
         <activity

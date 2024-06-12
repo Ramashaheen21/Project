@@ -8,7 +8,7 @@ Office Hours: Mon-Thu, 10 AM - 5 PM
 Address: Birzeit University, Birzeit, Ramallah, Palestine
 </string>
 
-    <string name="aboutUs">Explore our collection of classic and unique cars. From iconic models to timeless classics, each car offers a memorable driving experience. Welcome to a world of beauty and craftsmanship on the road.</string>
+    <string name="aboutUs">Explore our collection of classic and unique cars. From iconic models to timeless classics, each car offers a memorable driving experience. Welcome to a world of beauty on the road.</string>
     <string name="about_us_string_about_us_act">About Us?</string>
     <string name="add_personal_info_string_addbinfo">Add Personal Info</string>
     <string name="first_name_string_addbinfo">First Name</string>
@@ -97,4 +97,7 @@ Address: Birzeit University, Birzeit, Ramallah, Palestine
     <string name="book_string_card">Book</string>
     <string name="details_string_card">Details</string>
     <string name="price_string_card">$75/day</string>
+    <string name="bookingstatus_manage_booking">Booking Status :</string>
+    <string name="booking_date_manage_booking">Booking Date :</string>
+    <string name="booking_id_manage_booking">Booking ID</string>
 </resources>

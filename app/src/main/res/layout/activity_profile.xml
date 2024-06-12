@@ -48,7 +48,7 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/updateInfo"
+                android:id="@+id/infoAboutUs"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:background="@color/white"

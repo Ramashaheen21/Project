@@ -178,10 +178,21 @@
                     android:id="@+id/et_color"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="92dp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView5"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="88dp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView19"
                     app:layout_constraintTop_toBottomOf="@+id/motorType_txt" />
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="140dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView8"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView5"
+                    app:srcCompat="@drawable/color"
+                    tools:ignore="ContentDescription" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

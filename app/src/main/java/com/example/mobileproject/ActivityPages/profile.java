@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,6 +19,7 @@ public class profile extends AppCompatActivity {
     private Button menu_home;
     private Button menu_account;
     private Button logout;
+    private TextView infoAboutUs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,8 @@ public class profile extends AppCompatActivity {
         menu_liked = findViewById(R.id.button_Location);
         menu_home = findViewById(R.id.button_main);
         menu_account = findViewById(R.id.button_profile);
+        infoAboutUs = findViewById(R.id.infoAboutUs);
+
 
         logout = findViewById(R.id.logout_btn);
 
@@ -68,6 +72,14 @@ public class profile extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(profile.this, HomePage.class);
                 startActivity(i);
+            }
+        });
+
+        infoAboutUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(profile.this, aboutus.class);
+                startActivity(intent);
             }
         });
     }

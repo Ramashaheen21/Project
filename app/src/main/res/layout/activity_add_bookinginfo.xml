@@ -22,7 +22,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logoblack" />
+            app:srcCompat="@drawable/logoblack"
+            tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Scrollable content section -->
@@ -52,7 +53,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
+                tools:ignore="Autofill,RtlSymmetry,TextFields"
                 android:hint="@string/first_name_string_addbinfo" />
 
             <EditText
@@ -61,7 +62,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
+                tools:ignore="Autofill,RtlSymmetry,TextFields"
                 android:hint="@string/last_name__string_addbinfo" />
 
             <EditText
@@ -71,7 +72,7 @@
                 android:hint="@string/id_number_string_addbinfo"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
+                tools:ignore="Autofill,RtlSymmetry,TextFields"
                 android:inputType="number" />
 
             <EditText
@@ -82,7 +83,7 @@
                 android:focusable="false"
                 android:hint="@string/birthday_string_addbinfo"
                 android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="Autofill,RtlSymmetry,TextFields" />
 
             <EditText
                 android:id="@+id/start_date"
@@ -92,7 +93,7 @@
                 android:focusable="false"
                 android:hint="@string/start_date_string_addbinfo"
                 android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="Autofill,RtlSymmetry,TextFields" />
 
             <EditText
                 android:id="@+id/end_date"
@@ -102,8 +103,7 @@
                 android:focusable="false"
                 android:layout_marginTop="15dp"
                 android:paddingStart="10dp"
-                tools:ignore="RtlSymmetry"
-                android:clickable="true" />
+                tools:ignore="Autofill,RtlSymmetry,TextFields" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,7 +154,7 @@
                 android:id="@+id/paymentInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:orientation="vertical">
 
                 <TextView
