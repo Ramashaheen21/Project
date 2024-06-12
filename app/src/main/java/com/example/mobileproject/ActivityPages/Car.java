@@ -12,6 +12,17 @@ public class Car implements Parcelable {
     private String gearType;
     private String color;
     private double pricePerDay;
+    private String start,end;
+    private double Total;
+
+    public Car(String carModel, int year,String start, String end, double total) {
+
+        this.carModel = carModel;
+        this.year = year;
+        this.start = start;
+        this.end = end;
+        this.Total = total;
+    }
 
     // Constructor
     public Car(String model, int year) {

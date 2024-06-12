@@ -23,7 +23,7 @@
             android:name=".ActivityPages.CarListView"
             android:exported="false" />
         <activity
-            android:name=".ActivityPages.bookings"
+            android:name=".ActivityPages.booking"
             android:exported="false" />
         <activity
             android:name=".ActivityPages.FindUs"
@@ -54,7 +54,6 @@
             android:exported="true" />
         <activity android:name=".ActivityPages.checkoutinfo" />
         <activity android:name=".ActivityPages.HomePage" />
-        <activity android:name=".ActivityPages.booking" />
         <activity android:name=".ActivityPages.profile" />
         <activity android:name=".ActivityPages.MainBusinessOwner" />
         <activity android:name=".ActivityPages.manageCars" />
