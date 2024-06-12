@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
@@ -28,9 +27,10 @@ import java.util.ArrayList;
 public class CarListView extends AppCompatActivity {
     private RequestQueue queue;
     private ListView listView;
-    private ArrayList<String> lstcars;
+    private ArrayList<String> lstcar;
 
     private String model;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ public class CarListView extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
 
         // Initialize the car list
-        lstcars = new ArrayList<>();
+        lstcar = new ArrayList<>();
 
         String carBrand = getIntent().getStringExtra("carBrand");
 
@@ -49,52 +49,46 @@ public class CarListView extends AppCompatActivity {
         fetchDataFromServer(carBrand);
 
         // Set an item click listener for the ListView
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedCar = lstcars.get(position);
-                String[] carInfoParts = selectedCar.split(" - ");
-                String selectedCarModel = carInfoParts[0]; // Extract the selected car model
-                Intent carinfointent = new Intent(CarListView.this, carInfo.class);
-                carinfointent.putExtra("carBrand", carBrand);
-                carinfointent.putExtra("carModel", selectedCarModel); // Pass the selected car model
-                startActivity(carinfointent);
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedCar = lstcar.get(position);
+            String[] carInfoParts = selectedCar.split(" - ");
+            String selectedCarModel = carInfoParts[0]; // Extract the selected car model
+            Intent carinfointent = new Intent(CarListView.this, carInfo.class);
+            carinfointent.putExtra("carBrand", carBrand);
+            carinfointent.putExtra("carModel", selectedCarModel); // Pass the selected car model
+            startActivity(carinfointent);
         });
     }
 
     private void fetchDataFromServer(String carBrand) {
         // Use your machine's IP address or a proper URL
-        String url = "http://10.0.2.2/carPHP/PHPcar.php?cat=" + carBrand;
+        String url = "http://10.0.0.17/carPHP/PHPcar.php?cat=" + carBrand;
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d("CarListView", "Response received: " + response.toString());
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject jsonObject = response.getJSONObject(i);
-                                model = jsonObject.getString("Car model");
-                                int year = jsonObject.getInt("Year");
+                response -> {
+                    Log.d("CarListView", "Response received: " + response.toString());
+                    try {
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject jsonObject = response.getJSONObject(i);
+                            model = jsonObject.getString("Car model");
+                            int year = jsonObject.getInt("Year");
 
-                                String carInfo = model + " - " + year;
-                                lstcars.add(carInfo);
-                            }
-                            ArrayAdapter<String> adapter = new ArrayAdapter<>(CarListView.this,
-                                    android.R.layout.simple_list_item_1, lstcars);
-                            listView.setAdapter(adapter);
-                        } catch (JSONException e) {
-                            Log.e("CarListView", "JSON parsing error: " + e.getMessage());
+                            String carInfo = model + " - " + year;
+                            lstcar.add(carInfo);
                         }
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(CarListView.this,
+                                android.R.layout.simple_list_item_1, lstcar);
+                        listView.setAdapter(adapter);
+                    } catch (JSONException e) {
+                        Log.e("CarListView", "JSON parsing error: " + e.getMessage());
                     }
                 },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("CarListView", "Error fetching data: " + error.getMessage());
-                        Toast.makeText(CarListView.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+                error -> {
+                    Log.e("CarListView", "Error fetching data: " + error.toString());
+                    if (error.networkResponse != null) {
+                        Log.e("CarListView", "HTTP status code: " + error.networkResponse.statusCode);
                     }
+                    Toast.makeText(CarListView.this, "Error fetching data", Toast.LENGTH_SHORT).show();
                 });
 
         // Add the request to the RequestQueue

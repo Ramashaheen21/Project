@@ -73,7 +73,7 @@ public class carInfo extends AppCompatActivity {
     }
 
     private void fetchDataFromServer(String carBrand, String carModelfromlist) {
-        String url = "http://10.0.2.2/carPHP/PHPcar.php?cat=" + carBrand;
+        String url = "http://10.0.0.17/carPHP/PHPcar.php?cat=" + carBrand;
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -83,12 +83,12 @@ public class carInfo extends AppCompatActivity {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject jsonObject = response.getJSONObject(i);
-                                String brands = jsonObject.getString("Car brand");
-                                String carModel = jsonObject.getString("Car model");
-                                int seats = jsonObject.getInt("Car seats number");
-                                String gearType = jsonObject.getString("Gear type");
-                                String colors = jsonObject.getString("Color");
-                                double pricePerDay = jsonObject.getDouble("Price per day");
+                                 brands = jsonObject.getString("Car brand");
+                                 carModel = jsonObject.getString("Car model");
+                                 seats = jsonObject.getInt("Car seats number");
+                                 gearType = jsonObject.getString("Gear type");
+                                 colors = jsonObject.getString("Color");
+                                 pricePerDay = jsonObject.getDouble("Price per day");
 
                                 // Check if the current car model matches the desired car model
                                 if (carModel.equals(carModelfromlist)) {
