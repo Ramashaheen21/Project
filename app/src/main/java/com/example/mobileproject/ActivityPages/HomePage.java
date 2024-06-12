@@ -1,11 +1,15 @@
 package com.example.mobileproject.ActivityPages;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,18 +19,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.mobileproject.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends AppCompatActivity {
     private static final String TAG = "HomePage";
+    private RequestQueue queue;
 
-    private RecyclerView recyclerView;
-    private List<Car> carList;
-    private Button btn_search;
     private Button mercedesbtn;
     private Button bmwbtn;
     private Button porschebtn;
@@ -38,11 +52,14 @@ public class HomePage extends AppCompatActivity {
     private Button menu_liked;
     private Button menu_home;
     private Button menu_account;
-    private ImageView imageView;
 
     ConstraintLayout card1;
     ConstraintLayout card2;
     ConstraintLayout card3;
+
+    private String color,carModel,gear,carb;
+    private int  seat;
+    private double price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,15 +78,7 @@ public class HomePage extends AppCompatActivity {
         menu_home = findViewById(R.id.button_main);
         menu_account = findViewById(R.id.button_profile);
 
-//         imageView = findViewById(R.id.card_image);
-//        try {
-//            InputStream inputStream = getAssets().open("carPhotos/Aston Martin DB5.png");
-//            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-//            imageView.setImageBitmap(bitmap);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
+        queue = Volley.newRequestQueue(this);
         Log.d(TAG, "HomePage onCreate");
         menu_liked.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,6 +186,31 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 String carid = "FR004";
+                fetchCarDetailsAndStartActivity(carid);
+            }
+        });
+
+        card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               String carid="PO002";
+                fetchCarDetailsAndStartActivity(carid);
+            }
+        });
+
+        card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String carid = "M008";
+                fetchCarDetailsAndStartActivity(carid);
+            }
+        });
+
+
         // For card2
         TextView vehicle2 = card2.findViewById(R.id.vehicle);
         TextView price2 = card2.findViewById(R.id.price);
@@ -210,4 +244,53 @@ public class HomePage extends AppCompatActivity {
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+    private void fetchCarDetailsAndStartActivity(String CarId) {
+        // Perform Volley request to fetch car details
+        String url = "http://10.0.0.17/carPHP/GetID.php?cat=" + CarId;
+
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            if (response.length() > 0) {
+                                JSONObject carDetails = response.getJSONObject(0);
+
+                                String color = carDetails.getString("Color");
+                                String carModel = carDetails.getString("Car model");
+                                String gear = carDetails.getString("Gear type");
+                                int seat = carDetails.getInt("Car seats number");
+                                double price = carDetails.getDouble("Price per day");
+                                String carb = carDetails.getString("Car brand");
+                                String ID = carDetails.getString("Car ID");
+
+                                Intent intent = new Intent(HomePage.this, carInfo.class);
+                                intent.putExtra("color", color);
+                                intent.putExtra("carM", carModel);
+                                intent.putExtra("g", gear);
+                                intent.putExtra("s", seat);
+                                intent.putExtra("PPD", price);
+                                intent.putExtra("carB", carb);
+                                intent.putExtra("carid", ID);
+                                startActivity(intent);
+                            } else {
+                                showToast("No car details found.");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            showToast("Error parsing response");
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        showToast("Error fetching data: " + error.getMessage());
+                    }
+                });
+
+        queue.add(request);
+    }
+
 }
