@@ -11,7 +11,7 @@ import com.example.mobileproject.R;
 public class manageCars extends AppCompatActivity {
     private Button btn_add;
     private Button btn_delete;
-    private Button btn_update;
+   // private Button btn_update;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class manageCars extends AppCompatActivity {
     private void setupViews() {
         btn_add = findViewById(R.id.btn_add);
         btn_delete = findViewById(R.id.btn_delete);
-        btn_update = findViewById(R.id.btn_update);
+       // btn_update = findViewById(R.id.btn_update);
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,12 +41,12 @@ public class manageCars extends AppCompatActivity {
             }
         });
 
-        btn_update.setOnClickListener(new View.OnClickListener() {
+        /*btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(manageCars.this, UpdateCar.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }

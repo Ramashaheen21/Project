@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mobileproject.R;
 
@@ -29,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class carInfo extends AppCompatActivity {
     private RequestQueue queue;
@@ -41,11 +44,17 @@ public class carInfo extends AppCompatActivity {
     private String carb ,carm ,g,c;
     private  double pricePD;
     private int s;
+
+    ImageView carimgs;
+
+    private List<images> items = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_info);
 
+        carimgs = findViewById(R.id.car_img);
         rentbtn = findViewById(R.id.btn_rent);
         queue = Volley.newRequestQueue(this);
 
@@ -188,6 +197,54 @@ public class carInfo extends AppCompatActivity {
         // Add the request to the RequestQueue
         queue.add(jsonArrayRequest);
     }
+    private void loadItems() {
 
+        String BASE_URL = "http://10.0.0.17/carPhotos/carPhotos/carsPics.php?";
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+
+
+                        try {
+
+                            JSONArray array = new JSONArray(response);
+                            for (int i = 0; i<array.length(); i++){
+
+                                JSONObject object = array.getJSONObject(i);
+
+                                String brand = object.getString("Car brand");
+                                String image = object.getString("image");
+                                String model = object.getString("Car model");
+                                String id = object.getString("CarID");
+
+                                images pizza = new images(brand,model,id ,image);
+                                items.add(pizza);
+                            }
+
+                        }catch (Exception e){
+
+                        }
+
+                        /*CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(carInfo.this,
+                                items);
+                        carimgs.setAdapter(adapter);*/
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                Toast.makeText(carInfo.this, error.toString(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        Volley.newRequestQueue(carInfo.this).add(stringRequest);
+
+    }
 
 }
